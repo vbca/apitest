@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+
+{% block body %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{person_form}}
+        <hr>        
+        {{detail_formset.management_form}}
+
+        {% for event_form in detail_formset %}
+        <div class="link-formset">
+            {{ event_form.event }}
+            {% if event_form.event.errors %}
+                {% for error in event_form.event.errors %}
+                    {{ error|escape }}
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    {% endfor %}
+        <input type="submit">
+    </form>
+    
+{% endblock body %}
+
+    

@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+
+
+{% block body %}
+
+
+
+    <form action="" method="get">
+        {% csrf_token %}
+        {{filter.form}}
+        <input type="submit" value="Go!">
+    </form>
+
+    <div>
+        <ul>
+        {% for person in filter.qs  %}
+            <li>{{person.name}}-{{person.email}}</li>    
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock body %}
+
+
+{% block scripts %}
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous">
+    $("#id_name").change(function () {
+      var name = $(this).val();
+
+      $.ajax({
+        url: '/new_app/search/ajax/',
+        data: {
+          'name': name
+        },
+        dataType: 'json',
+        success: function (data) {
+          console.log(data)
+        }
+      });
+    });
+  </script>
+{% endblock scripts %}
+    
+    

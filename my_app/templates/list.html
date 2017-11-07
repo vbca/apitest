@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block body%}
+<div>
+    <p>Para crear un nuevo elemento da click <a href="{% url 'create' %}">aquí</a> </p>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Detail</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in object_list %}
+                <tr>
+                    <td>{{obj.name}}</td>
+                    <td><a href="{% url 'detail' obj.pk %}">Detail</a></td>
+                    <td><a href="{% url 'update' obj.pk %}">Update</a></td>
+                    <td><a href="{% url 'delete' obj.pk %}">Delete</a></td>
+                </tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+    
+{% endblock body%}

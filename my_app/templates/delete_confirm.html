@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+
+{% block body%}
+    <form action="" method='post'>
+        {% csrf_token %}
+        <p>Estás seguro que quieres cancelar este objecto {{object}}?</p>
+        <input type="submit" value="Ok">
+    </form>
+{% endblock body%}

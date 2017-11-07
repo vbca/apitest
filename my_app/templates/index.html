@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+
+{% block header%}
+    <h1>{{object}}</h1>
+    <h2>{{name|safe}}</h2>
+{% endblock header %}
+
+{% block body %}
+    {{greet}}
+
+    <ul>
+        {% for x in collection %}
+            <li>{{ x }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for x in collection %}
+            <li>{{ x }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for x,y in diccionario.items %}
+            <li>{{ x }} - {{y}}</li>
+        {% endfor %}
+    </ul>
+    {{collection.0}}
+    {# {% if collection.0 == 1 %} #}
+       <!--<p>dentro de collection</p>-->
+    {# {% else %} #}
+        <p>No tiene nada</p>
+    {# {% endif %}#} 
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit">
+    </form>
+{% endblock body %}
+
+{% block scripts %}
+<script>
+    alert("js")
+</script>
+{% endblock scripts %}
+
