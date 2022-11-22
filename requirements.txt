@@ -10,7 +10,7 @@ djangorestframework-simplejwt==3.1
 idna==2.6
 oauthlib==2.0.6
 olefile==0.44
-Pillow==4.3.0
+Pillow==9.3.0
 PyJWT==1.5.3
 python-dotenv==0.7.1
 pytz==2017.2
